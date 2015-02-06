@@ -1,6 +1,7 @@
 package com.example.lin.bennynav;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -28,7 +29,7 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
     private int ImgID;
-
+//    private Intent GoVW = new Intent(MainActivity.this,WebVW.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,10 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 mTitle = getString(R.string.title_section3);
 //                Img1.setImageResource(R.drawable.neptune);
+                break;
+            case 4:
+                Intent GoVW = new Intent(MainActivity.this,WebVW.class);
+                startActivity(GoVW);
                 break;
         }
     }
@@ -125,6 +130,7 @@ public class MainActivity extends ActionBarActivity
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
+
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
@@ -138,8 +144,10 @@ public class MainActivity extends ActionBarActivity
                                  Bundle savedInstanceState) {
             ImageView Img1;
             int Imgd=getArguments().getInt(ARG_SECTION_NUMBER);
+
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
            Img1=(ImageView) rootView.findViewById(R.id.IV1);
+
             switch (Imgd) {
                 case 1:
                     Img1.setImageResource(R.drawable.saturn);
@@ -149,6 +157,9 @@ public class MainActivity extends ActionBarActivity
                     break;
                 case 3:
                     Img1.setImageResource(R.drawable.mercury);
+                    break;
+                case 4:
+
                     break;
 
 
